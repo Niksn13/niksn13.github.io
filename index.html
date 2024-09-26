@@ -14,12 +14,12 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f4f8;
+            background-color: #f0f0f0;
             color: #333;
         }
 
         header {
-            background-color: #0366d6;
+            background-color: #333;
             color: white;
             padding: 20px;
             text-align: center;
@@ -41,7 +41,7 @@
         }
 
         h2 {
-            color: #0366d6;
+            color: #444;
             font-size: 2rem;
             margin-bottom: 10px;
         }
@@ -55,24 +55,78 @@
             padding-left: 20px;
         }
 
+        .company-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .company-item {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .company-name {
+            color: #666;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .company-name:hover {
+            background-color: #bbb;
+        }
+
+        .popup-info {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            z-index: 10;
+            transition: opacity 0.3s ease;
+        }
+
+        .company-item:hover .popup-info {
+            display: block;
+            opacity: 1;
+        }
+
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #0366d6;
+            background-color: #666;
             color: white;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s;
             margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn:hover {
-            background-color: #005bb5;
+            background-color: #444;
+        }
+
+        .btn svg {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
         }
 
         footer {
-            background-color: #0366d6;
+            background-color: #333;
             color: white;
             padding: 20px;
             text-align: center;
@@ -82,6 +136,15 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contacts svg {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
         }
 
         #phone-number {
@@ -93,15 +156,16 @@
         .btn-show-phone {
             cursor: pointer;
             font-size: 1rem;
-            color: #0366d6;
+            color: #ffffff;
             border: none;
-            background: none;
-            text-decoration: underline;
-            padding: 0;
+            background-color: #444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         .btn-show-phone:hover {
-            color: #005bb5;
+            background-color: #222;
         }
     </style>
 </head>
@@ -110,31 +174,51 @@
     <header>
         <h1>Никонов Никита Андреевич</h1>
         <p>Программист C#</p>
-        <p>Ногинск, Московская область | <button class="btn-show-phone" onclick="showPhoneNumber()">Показать телефон</button> <span id="phone-number">+7 (991) 3371766</span> | <a href="mailto:niksn13@ya.ru">niksn13@ya.ru</a></p>
-        <a href="https://t.me/NikonovNikita" target="_blank" class="btn">Связаться в Telegram</a>
+        <p>Ногинск, Московская область | 
+            <button class="btn-show-phone" id="show-phone-btn" onclick="showPhoneNumber()">Показать телефон</button> 
+            <span id="phone-number">+7 (991) 3371766</span> 
+            | <a href="https://t.me/NikonovNikita" target="_blank" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.371 0 0 5.372 0 12c0 6.627 5.371 12 12 12s12-5.373 12-12c0-6.628-5.371-12-12-12zm4.93 7.557l-1.793 8.47c-.137.616-.498.768-1.01.477l-2.815-2.078-1.357 1.306c-.15.151-.276.277-.565.277l.203-2.85 5.18-4.685c.225-.2-.05-.311-.35-.11l-6.416 4.035-2.772-.868c-.603-.188-.617-.603.126-.89l10.84-4.188c.498-.185.936.12.778.883z"/></svg>
+                Связаться в Telegram
+            </a>
+        </p>
     </header>
 
     <div class="container">
         <!-- Описание -->
         <section>
             <h2>Обо мне</h2>
-            <p>Меня зовут Никонов Никита, я опытный программист C# с более чем 5-летним стажем работы в разработке программного обеспечения, CRM-систем и финтех решений. Моя специализация — разработка backend приложений на платформе .NET и интеграция с различными базами данных.</p>
+            <p>Меня зовут Никонов Никита, я опытный программист C# с более чем 5-летним стажем работы в разработке программного обеспечения, CRM-систем и финтех решений. Моя специализация — полная разработка приложений на платформе .NET и интеграция с различными базами данных.</p>
         </section>
 
         <!-- Опыт работы -->
         <section>
             <h2>Опыт работы</h2>
-            <h3>Группа компаний ПИК — Разработчик</h3>
-            <p><strong>Октябрь 2021 — настоящее время (3 года)</strong></p>
-            <p>Занимался разработкой CRM-систем и финансово-технологических решений для строительного сектора. Разработка на платформе .NET.</p>
+            <ul class="company-list">
+                <li class="company-item">
+                    <div class="company-name">Группа компаний ПИК — Разработчик</div>
+                    <div class="popup-info">
+                        <p><strong>Октябрь 2021 — настоящее время (3 года)</strong></p>
+                        <p>Занимался разработкой CRM-систем и финансово-технологических решений для строительного сектора. Разработка на платформе .NET.</p>
+                    </div>
+                </li>
 
-            <h3>ООО МЗПМ — Программист C#</h3>
-            <p><strong>Октябрь 2020 — Сентябрь 2021 (1 год)</strong></p>
-            <p>Полный цикл разработки ПО для учета заказов, табеля, склада, с уведомлениями через Telegram и email.</p>
+                <li class="company-item">
+                    <div class="company-name">ООО МЗПМ — Программист C#</div>
+                    <div class="popup-info">
+                        <p><strong>Октябрь 2020 — Сентябрь 2021 (1 год)</strong></p>
+                        <p>Полный цикл разработки ПО для учета заказов, табеля, склада, с уведомлениями через Telegram и email.</p>
+                    </div>
+                </li>
 
-            <h3>ООО Параллакс — Программист</h3>
-            <p><strong>Июль 2019 — Октябрь 2020 (1 год 4 месяца)</strong></p>
-            <p>Разработка ПО для автоматизации процессов и участие в проекте дипломной работы.</p>
+                <li class="company-item">
+                    <div class="company-name">ООО Параллакс — Программист</div>
+                    <div class="popup-info">
+                        <p><strong>Июль 2019 — Октябрь 2020 (1 год 4 месяца)</strong></p>
+                        <p>Разработка ПО для автоматизации процессов и участие в проекте дипломной работы.</p>
+                    </div>
+                </li>
+            </ul>
         </section>
 
         <!-- Образование -->
@@ -160,14 +244,24 @@
     </div>
 
     <footer>
-        <p class="contacts">Свяжитесь со мной: <a href="mailto:niksn13@ya.ru">niksn13@ya.ru</a></p>
-        <p>© 2024 Никонов Никита Андреевич</p>
+        <p class="contacts">
+            <a href="https://t.me/NikonovNikita" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.371 0 0 5.372 0 12c0 6.627 5.371 12 12 12s12-5.373 12-12c0-6.628-5.371-12-12-12zm4.93 7.557l-1.793 8.47c-.137.616-.498.768-1.01.477l-2.815-2.078-1.357 1.306c-.15.151-.276.277-.565.277l.203-2.85 5.18-4.685c.225-.2-.05-.311-.35-.11l-6.416 4.035-2.772-.868c-.603-.188-.617-.603.126-.89l10.84-4.188c.498-.185.936.12.778.883z"/></svg>
+                Telegram
+            </a>
+        </p>
     </footer>
 
     <script>
         function showPhoneNumber() {
-            document.getElementById('phone-number').style.display = 'inline';
+            const phoneNumber = document.getElementById('phone-number');
+            const showPhoneBtn = document.getElementById('show-phone-btn');
+            if (phoneNumber.style.display === "none") {
+                phoneNumber.style.display = "inline";
+                showPhoneBtn.style.display = "none";
+            }
         }
     </script>
+
 </body>
 </html>
