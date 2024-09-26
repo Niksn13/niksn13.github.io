@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -167,13 +167,17 @@
         .btn-show-phone:hover {
             background-color: #222;
         }
+
+        .lang-toggle {
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Никонов Никита Андреевич</h1>
-        <p>Программист C#</p>
+        <h1 id="name">Никонов Никита Андреевич</h1>
+        <p id="job-title">Программист C#</p>
         <p>Ногинск, Московская область | 
             <button class="btn-show-phone" id="show-phone-btn" onclick="showPhoneNumber()">Показать телефон</button> 
             <span id="phone-number">+7 (991) 3371766</span> 
@@ -185,37 +189,42 @@
     </header>
 
     <div class="container">
+        <div class="lang-toggle">
+            <button onclick="setLanguage('ru')">Русский</button>
+            <button onclick="setLanguage('en')">English</button>
+        </div>
+
         <!-- Описание -->
         <section>
-            <h2>Обо мне</h2>
-            <p>Меня зовут Никонов Никита, я опытный программист C# с более чем 5-летним стажем работы в разработке программного обеспечения, CRM-систем и финтех решений. Моя специализация включает полную разработку приложений на платформе .NET, а также интеграцию со сторонними приложениями и системами. Я обладаю глубокими знаниями в работе с API и обеспечиваю надежное взаимодействие между различными платформами, что позволяет создавать эффективные решения для бизнеса.</p>
+            <h2 id="about-title">Обо мне</h2>
+            <p id="about-text">Меня зовут Никонов Никита, я опытный программист C# с более чем 5-летним стажем работы в разработке программного обеспечения, CRM-систем и финтех решений. Моя специализация включает полную разработку приложений на платформе .NET, а также интеграцию со сторонними приложениями и системами. Я обладаю глубокими знаниями в работе с API и обеспечиваю надежное взаимодействие между различными платформами, что позволяет создавать эффективные решения для бизнеса.</p>
         </section>
 
         <!-- Опыт работы -->
         <section>
-            <h2>Опыт работы</h2>
+            <h2 id="experience-title">Опыт работы</h2>
             <ul class="company-list">
                 <li class="company-item">
-                    <div class="company-name">Группа компаний ПИК — Разработчик</div>
+                    <div class="company-name" id="company1-name">Группа компаний ПИК — Разработчик</div>
                     <div class="popup-info">
-                        <p><strong>Октябрь 2021 — настоящее время (3 года)</strong></p>
-                        <p>Занимался разработкой CRM-систем и финансово-технологических решений для строительного сектора. Разработка на платформе .NET.</p>
+                        <p><strong id="experience1-date">Октябрь 2021 — по настоящее время</strong></p>
+                        <p id="experience1-description">Занимаюсь разработкой CRM-систем и финансово-технологических решений для строительного сектора. Разработка на платформе .NET.</p>
                     </div>
                 </li>
 
                 <li class="company-item">
-                    <div class="company-name">ООО МЗПМ — Программист C#</div>
+                    <div class="company-name" id="company2-name">ООО МЗПМ — Программист C#</div>
                     <div class="popup-info">
-                        <p><strong>Октябрь 2020 — Сентябрь 2021 (1 год)</strong></p>
-                        <p>Полный цикл разработки ПО для учета заказов, табеля, склада, с уведомлениями через Telegram и email.</p>
+                        <p><strong id="experience2-date">Октябрь 2020 — сентябрь 2021</strong></p>
+                        <p id="experience2-description">Полный цикл разработки ПО для учета заказов, табеля, склада, с уведомлениями через Telegram и email.</p>
                     </div>
                 </li>
 
                 <li class="company-item">
-                    <div class="company-name">ООО Параллакс — Программист</div>
+                    <div class="company-name" id="company3-name">ООО Параллакс — Программист</div>
                     <div class="popup-info">
-                        <p><strong>Июль 2019 — Октябрь 2020 (1 год 4 месяца)</strong></p>
-                        <p>Разработка ПО для автоматизации процессов и участие в проекте дипломной работы.</p>
+                        <p><strong id="experience3-date">Июль 2019 — октябрь 2020</strong></p>
+                        <p id="experience3-description">Разработка ПО для автоматизации процессов и написание дипломного проекта по автоматизации создания схем расположения земельных участков на кадастровом плане территории</p>
                     </div>
                 </li>
             </ul>
@@ -223,45 +232,90 @@
 
         <!-- Образование -->
         <section>
-            <h2>Образование</h2>
-            <h3>Московский государственный технологический университет "Станкин"</h3>
-            <p>Магистр техники и технологии, 2021 год</p>
-            <p>Информатика и вычислительная техника</p>
-        </section>
-
-        <!-- Навыки -->
-        <section>
-            <h2>Навыки</h2>
-            <ul>
-                <li>C#, .NET</li>
-                <li>MS SQL Server, MySQL</li>
-                <li>API, ASP.NET, WCF</li>
-                <li>Git, RabbitMQ</li>
-                <li>MS Dynamics CRM</li>
-                <li>Рефакторинг кода, код-ревью</li>
-            </ul>
+            <h2 id="education-title">Образование</h2>
+            <h3 id="education-institution">Московский государственный технологический университет "Станкин"</h3>
+            <p id="education-degree">Магистр техники и технологии, 2021 год</p>
         </section>
     </div>
 
     <footer>
-        <p class="contacts">
-            <a href="https://t.me/NikonovNikita" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.371 0 0 5.372 0 12c0 6.627 5.371 12 12 12s12-5.373 12-12c0-6.628-5.371-12-12-12zm4.93 7.557l-1.793 8.47c-.137.616-.498.768-1.01.477l-2.815-2.078-1.357 1.306c-.15.151-.276.277-.565.277l.203-2.85 5.18-4.685c.225-.2-.05-.311-.35-.11l-6.416 4.035-2.772-.868c-.603-.188-.617-.603.126-.89l10.84-4.188c.498-.185.936.12.778.883z"/></svg>
-                Telegram
-            </a>
-        </p>
+        <p>&copy; 2023 Никонов Никита</p>
     </footer>
 
     <script>
+        const translations = {
+            ru: {
+                name: 'Никонов Никита Андреевич',
+                jobTitle: 'Программист C#',
+                aboutTitle: 'Обо мне',
+                aboutText: 'Меня зовут Никонов Никита, я опытный программист C# с более чем 5-летним стажем работы в разработке программного обеспечения, CRM-систем и финтех решений. Моя специализация включает полную разработку приложений на платформе .NET, а также интеграцию со сторонними приложениями и системами. Я обладаю глубокими знаниями в работе с API и обеспечиваю надежное взаимодействие между различными платформами, что позволяет создавать эффективные решения для бизнеса.',
+                experienceTitle: 'Опыт работы',
+                company1Name: 'Группа компаний ПИК — Разработчик',
+                company2Name: 'ООО МЗПМ — Программист C#',
+                company3Name: 'ООО Параллакс — Программист',
+                experience1Date: 'Октябрь 2021 — по настоящее время',
+                experience1Description: 'Занимаюсь разработкой для CRM-системы MS Dynamics CRM и финансово-технологических решений для строительного сектора. Разработка на платформе .NET.',
+                experience2Date: 'Октябрь 2020 — сентябрь 2021',
+                experience2Description: 'Полный цикл разработки ПО для учета заказов, табеля, склада, с уведомлениями через Telegram и email.',
+                experience3Date: 'Июль 2019 — октябрь 2020',
+                experience3Description: 'Разработка ПО для автоматизации процессов и написание дипломного проекта по автоматизации создания схем расположения земельных участков на кадастровом плане территории',
+                educationTitle: 'Образование',
+                educationInstitution: 'Московский государственный технологический университет "Станкин"',
+                educationDegree: 'Магистр техники и технологии, 2021 год'
+                            },
+            en: {
+                name: 'Nikonov Nikita Andreevich',
+                jobTitle: 'C# Developer',
+                aboutTitle: 'About Me',
+                aboutText: 'My name is Nikita Nikonov, and I am an experienced C# developer with over 5 years of experience in software development, CRM systems, and fintech solutions. My specialization includes full application development on the .NET platform, as well as integration with third-party applications and systems. I have deep expertise in working with APIs and ensure reliable interaction between various platforms, enabling the creation of efficient business solutions.',
+                experienceTitle: 'Work Experience',
+                company1Name: 'PIK Group — Developer',
+                company2Name: 'LLC MZPM — C# Developer',
+                company3Name: 'LLC Parallax — Developer',
+                experience1Date: 'October 2021 — currently',
+                experience1Description: 'I work on development for the MS Dynamics CRM system and fintech solutions for the construction sector. Development is done on the .NET platform.',
+                experience2Date: 'October 2020 — september 2021',
+                experience2Description: 'Full software development cycle for order management, timesheets, and warehouse inventory, with notifications via Telegram and email.',
+                experience3Date: 'July 2019 — october 2020',
+                experience3Description: 'Software development for process automation and writing a thesis project on automating the creation of land plot layout diagrams on the cadastral map of the territory.',
+                educationTitle: 'Education',
+                educationInstitution: 'Moscow State Technological University "STANKIN"',
+                educationDegree: 'Master of Engineering and Technology, 2021'
+        }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById('name').textContent = translations[lang].name;
+            document.getElementById('job-title').textContent = translations[lang].jobTitle;
+            document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+            document.getElementById('about-text').textContent = translations[lang].aboutText;
+            document.getElementById('experience-title').textContent = translations[lang].experienceTitle;
+
+            // Названия компаний
+            document.getElementById('company1-name').textContent = translations[lang].company1Name;
+            document.getElementById('company2-name').textContent = translations[lang].company2Name;
+            document.getElementById('company3-name').textContent = translations[lang].company3Name;
+
+            // Всплывающая информация (popup)
+            document.getElementById('experience1-date').textContent = translations[lang].experience1Date;
+            document.getElementById('experience1-description').textContent = translations[lang].experience1Description;
+            document.getElementById('experience2-date').textContent = translations[lang].experience2Date;
+            document.getElementById('experience2-description').textContent = translations[lang].experience2Description;
+            document.getElementById('experience3-date').textContent = translations[lang].experience3Date;
+            document.getElementById('experience3-description').textContent = translations[lang].experience3Description;
+
+            // Образование
+            document.getElementById('education-title').textContent = translations[lang].educationTitle;
+            document.getElementById('education-institution').textContent = translations[lang].educationInstitution;
+            document.getElementById('education-degree').textContent = translations[lang].educationDegree;
+
+        }
+
         function showPhoneNumber() {
-            const phoneNumber = document.getElementById('phone-number');
-            const showPhoneBtn = document.getElementById('show-phone-btn');
-            if (phoneNumber.style.display === "none" || phoneNumber.style.display === "") {
-                phoneNumber.style.display = "inline";
-                showPhoneBtn.style.display = "none";
-            }
+            document.getElementById('phone-number').style.display = 'inline';
+            document.getElementById('show-phone-btn').style.display = 'none';
         }
     </script>
-
 </body>
 </html>
+
