@@ -256,7 +256,7 @@
         function showPhoneNumber() {
             const phoneNumber = document.getElementById('phone-number');
             const showPhoneBtn = document.getElementById('show-phone-btn');
-            if (phoneNumber.style.display === "none") {
+            if (phoneNumber.style.display === "none" || phoneNumber.style.display === "") {
                 phoneNumber.style.display = "inline";
                 showPhoneBtn.style.display = "none";
             }
